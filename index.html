@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 2 - Website Building</title>
+        <script src="https://kit.fontawesome.com/a616f1c571.js" crossorigin="anonymous"></script>
+        <style>
+            body {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            #login-container {
+                width: 460px;
+                margin: 0 auto;
+            }
+
+            form label,
+            form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            form input {
+                padding: 8px;
+            }
+
+            form label {
+                font-weight: bold;
+            }
+
+            form div {
+                margin: 16px 0px;
+            }
+
+            #text1, #text2, #text3, #text4, #text5 {
+                display: none;
+            }
+
+            #yes, #yes2 {
+                display: none;
+                color: green;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+            }
+
+            #no, #no2 {
+                display: none;
+                color: red;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+            }
+
+            .name, .passw {
+                position: relative;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="login-container">
+
+            <form id="log-in">
+                <div class="name">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text">
+                    <i id="yes" class="fa-solid fa-check fa-1x"></i>
+                    <i id="no" class="fa-solid fa-xmark fa-1x"></i>
+                </div>
+
+                <div class="passw">
+                    <label for="password">Password:</label>
+                    <input id="password" class="enterUsername icon-rtl" type="password">
+                    <i id="yes2" class="fa-solid fa-check fa-1x"></i>
+                    <i id="no2" class="fa-solid fa-xmark fa-1x"></i>
+                </div>
+
+                <input type="submit" value="Login">
+
+                <p id="text1">*Please, enter username.</p>
+                <p id="text2">*Please, enter valid username.</p>
+                <p id="text3">*Please, enter password.</p>
+                <p id="text4">*Please, enter valid password.</p>
+                <p id="text5"><em>Successful login!</em></p>
+            </form>
+            </div>
+        
+           <script>
+           let subscribeForm = document.getElementById("log-in");
+            subscribeForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+               var usernameValue = document.getElementById("username");
+               var passwordValue = document.getElementById("password");
+               var enterUsername = document.getElementsByClassName("enterUsername");
+               
+   
+               if (usernameValue.value !== "new_user") {
+                   let label = document.getElementById("username");
+                   label.style.border = "2px solid red";
+                   label.style.borderRadius = "5px";
+                   let no = document.getElementById("no");
+                   no.style.display="block";
+                   let yes = document.getElementById("yes");
+                   yes.style.display="none";
+                   
+               }
+               else {
+                   let label = document.getElementById("username");
+                   label.style.border = "2px solid green";
+                   label.style.borderRadius = "5px";
+                   let no = document.getElementById("no");
+                   no.style.display="none";
+                   let yes = document.getElementById("yes");
+                   yes.style.display="block";
+               };
+
+               if (passwordValue.value !== "123456789") {
+                let pass = document.getElementById("password");
+                pass.style.border = "2px solid red";
+                pass.style.borderRadius = "5px";
+                let no2 = document.getElementById("no2");
+                no2.style.display="block";
+                let yes2 = document.getElementById("yes2");
+                yes2.style.display="none";
+               }
+               else {
+                   let pass = document.getElementById("password");
+                   pass.style.border = "2px solid green";
+                   pass.style.borderRadius = "5px";
+                   let no2 = document.getElementById("no2");
+                   no2.style.display="none";
+                   let yes2 = document.getElementById("yes2");
+                   yes2.style.display="block";
+               };
+
+               if (usernameValue.value !== "new_user" & usernameValue.value !== " ") {
+                  let txt2 = document.getElementById("text2");
+                  txt2.style.display = "block";
+               }
+               else {
+                   let txt2 = document.getElementById("text2");
+                   txt2.style.display = "none";
+               };
+
+
+               if (passwordValue.value !== "123456789" & passwordValue.value !== " ") {
+                let txt4 = document.getElementById("text4");
+                txt4.style.display = "block";
+            } else {
+                let txt4 = document.getElementById("text4");
+                txt4.style.display = "none";
+            };
+
+            if (usernameValue.value == "new_user" & passwordValue.value == "123456789") {
+                let txt5 = document.getElementById("text5");
+                txt5.style.display = "block";
+                
+            } else {
+                let txt5 = document.getElementById("text5");
+                txt5.style.display = "none";
+                
+            };
+
+
+            if (usernameValue.value == '') {
+                let txt1 = document.getElementById("text1");
+                txt1.style.display = "block";
+            } else {
+                let txt1 = document.getElementById("text1");
+                txt1.style.display = "none";
+            };
+
+            if (passwordValue.value == '') {
+                let txt3 = document.getElementById("text3");
+                txt3.style.display = "block";
+            } else {
+                let txt3 = document.getElementById("text3");
+                txt3.style.display = "none";
+            };
+               
+            });
+           </script>
+         
+    </body>
+    </html>
